@@ -1,0 +1,93 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Thursday, February 15, 2018 19:16:23}
+%TCIDATA{LastRevised=Thursday, February 15, 2018 20:31:57}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{Language=American English}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+\begin{center}
+{\LARGE REPORT \ }\emph{\ \ }\ \ \ \ \ \ \ 
+\end{center}
+
+\textit{\ In this report we want to analyze the method we used in order to
+regress two random variables which are correlated with a specific
+correlation value and to present the results of the regression. To
+accomplish this analysis we used Matlab programming\ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+\ \ \ \ \ \ \ }
+
+\section{\textit{Methodology of generating two random variables with a
+specific correlation \ \ \ \ \ }}
+
+\textit{We created two random variables x,\ y which are correlated at 0.1(or
+10\%). In more details, we generated a random matrix \ }$M\ $\textit{\ with
+2 columns, each column corresponds to the vector we want to derive (the
+elements of this matrix are drawn from a standard normal distribution).
+Furthermore, we multiplied the matrix with standard deviation and we add the
+mean, where variance ( square root of the variance is the standard
+deviation) and mean drawn from a normal distribution. Afterwards, we
+multiplied M with the upper triangular matrix }$L$\textit{\ which is
+obtained using the Cholesky decomposition of the desired correlation matrix }%
+$R$\textit{.}
+
+\section{\textit{Regression Analysis}}
+
+\subsection{\textit{Model}}
+
+$y=b_{0}+b_{1}\ast x+\in $\textit{, \ where }$\in $\textit{\ is the error
+term.}
+
+\subsection{\textit{Regression Output}}
+
+$\overset{\wedge }{y}\mathit{=}\underset{(0.0307)}{-0.0077}\mathit{+}%
+\underset{(0.0308)}{+0.0753}\mathit{\ast x}$
+
+\textit{Moreover, we can observe from our results, that the p-value of the }$%
+b_{1}$\textit{, is equal to 0.0148 which implies that this beta coefficient
+is statistical significant for }$a=0.05$\textit{. Whereas, the p-value of }$%
+b_{0}$\textit{\ is equal to 0.8014 so is statistical insignificant. Finally
+the degrees of freedom are 998.}
+
+\section{Summary}
+
+\textit{We can conclude that the estimated correlation coefficient between x
+and y is 0.0771 which is smaller compared  to the real correlation
+coefficient. }
+
+\end{document}
