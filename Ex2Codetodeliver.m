@@ -1,4 +1,4 @@
-%Loading my data
+ %Loading my data
 load('DATAFinanceExercise2.mat')
 load('DATAIndustriesNames.mat');
 
@@ -17,7 +17,7 @@ plotFrontier(Portf);
 Weights = estimateMaxSharpeRatio(Portf);
 [risk, ret] = estimatePortMoments(Portf, Weights);
 hold on
-plot(risk,ret,'*k');
+plot(risk, ret, '*k');
 title('Efficient Frontier and Sharpe Ratio');
 SumOfWeights = sum(Weights);
 
