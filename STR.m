@@ -63,4 +63,3 @@ axis tight
 STR = PorReturnFinal(1, 13:1097);
 save('STR.mat' , 'STR');
 
-xlswrite( 'STR.xlsx',(cumprod(STR+1) -1) );
