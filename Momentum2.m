@@ -1,54 +1,54 @@
-load('size.mat');
-sizeIndustry= Size;
+ load('size.mat');
+sizeIndustry = Size;
 clear Size;
 
 load('booktomarket.mat');
 
-%load('DATAFinanceExercise2.mat');
-load( 'monthlyReturns.mat' );
+%loading ('DATAFinanceExercise2.mat');
+load ('monthlyReturns.mat');
 %monthlyReturns = AverageValueWeightedReturnsMonthly;
 %clear AverageValueWeightedReturnsMonthly;
-monthlyReturns = monthlyReturns1(1:size(monthlyReturns1,1)-1 ,:);
+monthlyReturns = monthlyReturns1(1:size(monthlyReturns1, 1) -1, :);
 clear monthlyReturns1;
 
 
-numWinners=round(0.1*size(monthlyReturns,2));
-numLosers=round(0.1*size(monthlyReturns,2));
+numWinners = round(0.1*size(monthlyReturns, 2));
+numLosers = round(0.1*size(monthlyReturns, 2));
 %Equally Weighted Portfolio
-weight = 1/ numWinners;
+weight = 1/numWinners;
 
 %Estimation of Momentum
-compoundedReturns=ones( size(monthlyReturns,1 ), size(monthlyReturns,2)) ;
+compoundedReturns = ones(size(monthlyReturns, 1), size(monthlyReturns, 2));
 
 
-monthlyReturns( isnan(monthlyReturns)==1 ) =0;
-monthlyReturns( monthlyReturns==-99.99 ) =0;
+monthlyReturns(isnan(monthlyReturns)==1) = 0;
+monthlyReturns(monthlyReturns==-99.99) = 0;
 
-monthlyReturns=monthlyReturns/100;
+monthlyReturns = monthlyReturns/100;
 
 %Estimation of Compounded returns
 %I treated null values as 0
 %in the sense that these assets, for this month, will neither be
 %winners nor losers
-prices = zeros(size(monthlyReturns,1) , size(monthlyReturns,2));
-for i=1:size(monthlyReturns,2 )
-    prices(1,i) = 1;
-    for j=2:size(monthlyReturns,1 )
+prices = zeros(size(monthlyReturns, 1) , size(monthlyReturns, 2));
+for i = 1:size(monthlyReturns, 2)
+    prices(1, i) = 1;
+    for j=2:size(monthlyReturns, 1)
         if j==2
-            prices(j-1,i)
+            prices(j-1, i)
         end
-        compoundedReturns(j,i)=(1+monthlyReturns(j,i) )*compoundedReturns(j,i) ; 
+        compoundedReturns(j,i) = (1 + monthlyReturns(j, i))*compoundedReturns(j, i) ; 
         %prices(j,i) = monthlyReturns(j,i) * ( prices(j-1,i) +1); 
     end
 end
 
 %Estimation of Pt-1 / Pt-12
-momentumMatrix=zeros(size(monthlyReturns,1 )-12 , size(monthlyReturns,2 ));
+momentumMatrix = zeros(size(monthlyReturns, 1 ) -12 , size(monthlyReturns, 2 ));
 %momentumMatrix2=momentumMatrix;
 
-for numAsset = 1:size(monthlyReturns,2 )
+for numAsset = 1:size(monthlyReturns, 2 )
   
-    for i = 13: size(monthlyReturns,1 )
+    for i = 13: size(monthlyReturns, 1 )
         momentumMatrix(i-12,numAsset) =  compoundedReturns(i-1,numAsset)/ compoundedReturns(i-12,numAsset);
         %momentumMatrix2= 
     
