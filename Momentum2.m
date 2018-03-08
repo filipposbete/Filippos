@@ -112,8 +112,7 @@ StrSharpe=StrExpRet/StrStDev
 momentum=PorReturn;
 save('momentumMatrix.mat' , 'momentum');
 
-xlswrite('momentum.xlsx',cumprod(PorReturn+1)-1 );
-xlswrite( 'STR.xlsx',(cumprod(STR+1) -1) );
+
 
 
 
